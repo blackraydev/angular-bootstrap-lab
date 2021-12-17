@@ -1,29 +1,28 @@
 <div class="p-5">
   <form>
     <div class="form-group form-inline">
-        Full text search: <input class="form-control ml-2" type="text" [formControl]="filter"/>
+      <span class="mr-2">Поисковая строка: </span>
+      <input class="form-control" type="text" [formControl]="filter"/>
     </div>
   </form>
 
   <table class="table table-striped">
     <thead>
-    <tr>
-      <th scope="col">№</th>
-      <th scope="col">Страна</th>
-      <th scope="col">Площадь</th>
-      <th scope="col">Численность</th>
+    <tr class="row">
+      <th scope="col" class="col-1">№</th>
+      <th scope="col" class="col">Страна</th>
+      <th scope="col" class="col">Площадь</th>
+      <th scope="col" class="col">Численность</th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let country of countries$ | async; index as i">
-      <th scope="row">{{ i + 1 }}</th>
-      <td>
-        <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag" class="mr-2" style="width: 20px">
-        <ngb-highlight [result]="country.name" [term]="filter.value"></ngb-highlight>
-      </td>
-      <td><ngb-highlight [result]="country.area | number" [term]="filter.value"></ngb-highlight></td>
-      <td><ngb-highlight [result]="country.population | number" [term]="filter.value"></ngb-highlight></td>
+    <tr *ngFor="let country of countries$ | async; index as i" class="row">
+      <th scope="col" class="col-1">{{ i + 1 }}</th>
+      <td class="col">{{ country.name }}</td>
+      <td class="col">{{ country.area }}</td>
+      <td class="col">{{ country.population }}</td>
     </tr>
     </tbody>
   </table>
 </div>
+ 
