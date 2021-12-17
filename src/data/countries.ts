@@ -1,6 +1,6 @@
-import { Country } from "src/models/ICountry";
+import { ICountry } from "src/models/ICountry";
 
-export const Countries: Country[] = [
+export const Countries: ICountry[] = [
   {
     name: 'Россия',
     area: 17075200,
